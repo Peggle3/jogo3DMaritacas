@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3c0ji7ehppmh"]
+
+[ext_resource type="Script" path="res://Entities/jorginquebracod.gd" id="1_pdrhy"]
+[ext_resource type="ArrayMesh" uid="uid://ct3wkw85r0aga" path="res://Assets/Corpo.tres" id="2_3rtae"]
+[ext_resource type="ArrayMesh" uid="uid://jx01odm43d6c" path="res://Assets/Olho.tres" id="3_20no1"]
+[ext_resource type="Script" path="res://Entities/Camroot.gd" id="4_rfvyv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7rotr"]
+size = Vector3(0.434566, 0.778378, 0.442152)
+
+[node name="Jorginquebracod" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_pdrhy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.398189, 0)
+shape = SubResource("BoxShape3D_7rotr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = ExtResource("2_3rtae")
+skeleton = NodePath("")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.061017, 1.33397, -0.12903)
+mesh = ExtResource("3_20no1")
+skeleton = NodePath("../..")
+
+[node name="Camroot" type="Node3D" parent="."]
+script = ExtResource("4_rfvyv")
+
+[node name="h" type="Node3D" parent="Camroot"]
+
+[node name="v" type="Node3D" parent="Camroot/h"]
+
+[node name="Camera3D" type="Camera3D" parent="Camroot/h/v"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0390722, 0.480088, 1.50568)
+
+[node name="mouse_control_stay_delay" type="Timer" parent="Camroot"]

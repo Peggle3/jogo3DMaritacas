@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfedl31v4cb3u"]
+
+[ext_resource type="PackedScene" uid="uid://d3c0ji7ehppmh" path="res://Entities/jorginquebracod.tscn" id="1_eoukb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a6f0o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_isqwa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rfc2g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwp11"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_riuyn"]
+size = Vector3(15.007, 1, 15.0039)
+
+[node name="Level" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.846193, -0.521424, 0.109881, 0, 0.206204, 0.978509, -0.532876, 0.828008, -0.174489, 0, 0, 0)
+layers = 7
+light_energy = 1.6
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_fade_start = 0.0
+directional_shadow_max_distance = 22.4
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.29956, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_a6f0o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_isqwa")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+collision_layer = 2
+collision_mask = 5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(15, 0, 0, 0, 1, 0, 0, 0, 15, 0, 0, 0)
+gi_mode = 0
+mesh = SubResource("BoxMesh_rfc2g")
+surface_material_override/0 = SubResource("StandardMaterial3D_nwp11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_riuyn")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.91211, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("BoxShape3D_a6f0o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2"]
+mesh = SubResource("BoxMesh_isqwa")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8932, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+shape = SubResource("BoxShape3D_a6f0o")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3"]
+mesh = SubResource("BoxMesh_isqwa")
+
+[node name="Jorginquebracod" parent="." instance=ExtResource("1_eoukb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.08625, 1.06025, 1.64927)

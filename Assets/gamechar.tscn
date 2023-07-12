@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgylysb2qread"]
+
+[ext_resource type="PackedScene" uid="uid://6oavdhk3ab1i" path="res://gamechar.glb" id="1_5lutn"]
+[ext_resource type="ArrayMesh" uid="uid://ct3wkw85r0aga" path="res://Assets/Corpo.tres" id="2_bd8ev"]
+[ext_resource type="ArrayMesh" uid="uid://jx01odm43d6c" path="res://Assets/Olho.tres" id="3_pvm4j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ghcir"]
+size = Vector3(1, 1.56581, 1)
+
+[node name="gamechar" instance=ExtResource("1_5lutn")]
+
+[node name="Plane" parent="." index="0"]
+mesh = ExtResource("2_bd8ev")
+
+[node name="Sphere" parent="." index="1"]
+mesh = ExtResource("3_pvm4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.012736, 0.797258, 0)
+shape = SubResource("BoxShape3D_ghcir")
