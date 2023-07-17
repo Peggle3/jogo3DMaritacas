@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy5gnnn0bfqew"]
+
+[ext_resource type="Script" path="res://Portal.gd" id="1_i4mxp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uwd5b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbxl7"]
+albedo_color = Color(0.796078, 0, 0.576471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_6ctsx"]
+material = SubResource("StandardMaterial3D_xbxl7")
+
+[node name="Portal" type="Area3D"]
+collision_mask = 4
+script = ExtResource("1_i4mxp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_uwd5b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6ctsx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

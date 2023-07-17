@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcptjpmaak6jd"]
+
+[ext_resource type="Script" path="res://SubViewport.gd" id="1_xcb66"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_3oc25"]
+viewport_path = NodePath("SubViewport")
+
+[node name="texto3D" type="Sprite3D"]
+billboard = 1
+double_sided = false
+no_depth_test = true
+texture = SubResource("ViewportTexture_3oc25")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(328, 27)
+script = ExtResource("1_xcb66")
+
+[node name="Label" type="Label" parent="SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Olhar = Evento( Mexer.Mouse) ; "
+horizontal_alignment = 1
+vertical_alignment = 1

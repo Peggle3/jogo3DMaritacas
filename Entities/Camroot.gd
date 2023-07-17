@@ -15,9 +15,12 @@ func _ready():
 	
 func _input(event):
 	if event is InputEventMouseMotion:
+		
+		#$Camroot.get_parent().rotate_y(deg_to_rad(-event.relative.x * h_sensitivity))
 		$mouse_control_stay_delay.start()
 		camrot_h += -event.relative.x * h_sensitivity
 		camrot_v += event.relative.y * v_sensitivity
+		#$h.get_parent_node_3d().get_parent_node_3d().rotate_y(deg_to_rad(-event.relative.x * h_sensitivity))
 		
 func _physics_process(delta):
 	
