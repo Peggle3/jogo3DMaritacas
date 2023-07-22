@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy5gnnn0bfqew"]
+[gd_scene load_steps=7 format=3 uid="uid://dy5gnnn0bfqew"]
 
 [ext_resource type="Script" path="res://Portal.gd" id="1_i4mxp"]
+[ext_resource type="Texture2D" uid="uid://bnjtj8wahyk0p" path="res://Assets/grids/Red/texture_12.png" id="2_ru6f8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_uwd5b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qdabk"]
+albedo_texture = ExtResource("2_ru6f8")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbxl7"]
 albedo_color = Color(0.796078, 0, 0.576471, 1)
@@ -18,6 +22,7 @@ script = ExtResource("1_i4mxp")
 shape = SubResource("SphereShape3D_uwd5b")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_qdabk")
 mesh = SubResource("SphereMesh_6ctsx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

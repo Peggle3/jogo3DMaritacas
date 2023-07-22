@@ -1,15 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://v1ro26ldmakm"]
+[gd_scene load_steps=12 format=3 uid="uid://v1ro26ldmakm"]
 
 [ext_resource type="Script" path="res://SubViewport.gd" id="1_4pbf3"]
 [ext_resource type="PackedScene" uid="uid://d3c0ji7ehppmh" path="res://Entities/jorginquebracod.tscn" id="2_68470"]
+[ext_resource type="Texture2D" uid="uid://csvnop4qiydrp" path="res://Assets/grids/Dark/texture_13.png" id="3_jjxy3"]
+[ext_resource type="Script" path="res://Levels/parede_some.gd" id="3_qjl1h"]
+[ext_resource type="Texture2D" uid="uid://78pehu0r5g6w" path="res://Assets/grids/Dark/texture_04.png" id="4_hi7ve"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cteib"]
+sky_top_color = Color(0, 0.486275, 0.682353, 1)
+sky_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
+ground_bottom_color = Color(0.364706, 0.317647, 0.258824, 1)
+ground_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
+
+[sub_resource type="Sky" id="Sky_mn325"]
+sky_material = SubResource("ProceduralSkyMaterial_cteib")
+
+[sub_resource type="Environment" id="Environment_okmvf"]
+background_mode = 2
+sky = SubResource("Sky_mn325")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_cbut5"]
 viewport_path = NodePath("texto3D2/SubViewport")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gafmu"]
+albedo_texture = ExtResource("3_jjxy3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vm5df"]
+albedo_texture = ExtResource("4_hi7ve")
+
 [node name="Level1" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_okmvf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.846195, -0.521421, 0.109882, 0, 0.206206, 0.978509, -0.532873, 0.828009, -0.174491, 0, 2.6, 0)
+light_energy = 1.6
+shadow_enabled = true
+
 [node name="texto3D2" type="Sprite3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.7, -3.14799, -8.55916)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.7, 4.25201, -8.55916)
 pixel_size = 0.0125
 billboard = 1
 texture = SubResource("ViewportTexture_cbut5")
@@ -27,7 +59,33 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Jorginquebracod" parent="." instance=ExtResource("2_68470")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 1.5)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.2, 0)
+material_override = SubResource("StandardMaterial3D_gafmu")
 use_collision = true
+collision_mask = 4
+size = Vector3(10, 1, 10)
+
+[node name="parede_some" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+material_override = SubResource("StandardMaterial3D_vm5df")
+use_collision = true
+collision_mask = 4
+size = Vector3(10, 1.5, 0.5)
+script = ExtResource("3_qjl1h")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.50328, -0.3, 0)
+layers = 0
+use_collision = true
+collision_mask = 4
+size = Vector3(1, 3, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.50894, -0.3, 0)
+layers = 0
+use_collision = true
+collision_mask = 4
+size = Vector3(1, 3, 10)

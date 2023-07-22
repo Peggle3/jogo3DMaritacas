@@ -48,7 +48,7 @@ albedo_texture = ExtResource("3_tepsv")
 albedo_texture = ExtResource("2_thfgb")
 uv1_triplanar = true
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_jot3v"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_b01xp"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_j5t22"]
@@ -100,7 +100,7 @@ height = 5.421
 
 [node name="texto3D" parent="." instance=ExtResource("5_pt82t")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.2, 4.8, -18.4)
-texture = SubResource("ViewportTexture_jot3v")
+texture = SubResource("ViewportTexture_b01xp")
 
 [node name="texto3D2" type="Sprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.6, 7.3, 9.3)

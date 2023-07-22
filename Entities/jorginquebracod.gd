@@ -5,10 +5,8 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const sensitivity = 0.1
 
-
 # Gravidade do projeto
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 #func _input(event):
 	#if event is InputEventMouseMotion:
 	#	rotate_y(deg_to_rad(-event.relative.x * sensitivity))
@@ -17,7 +15,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _physics_process(delta):
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
+	Global.rotation_value = $Camroot/h/v.global_transform.basis.get_euler().x
+	
 	#$MeshInstance3D.rotation.y = lerp_angle($MeshInstance3D.rotation.y, $Camroot/h.rotation.y, delta * 10)
+	
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
