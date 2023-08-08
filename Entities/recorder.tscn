@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd1fqiykon3ur"]
+
+[ext_resource type="Script" path="res://Entities/recorder.gd" id="1_8c1r0"]
+[ext_resource type="PackedScene" uid="uid://d2v78wq6gdim7" path="res://Assets/Recorder/scene.gltf" id="1_ao85t"]
+
+[node name="Recorder" type="Node3D"]
+script = ExtResource("1_8c1r0")
+
+[node name="scene" parent="." instance=ExtResource("1_ao85t")]

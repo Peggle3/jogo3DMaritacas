@@ -1,6 +1,7 @@
 extends Node
 
 var rotation_value = 0
+var player_pos : Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

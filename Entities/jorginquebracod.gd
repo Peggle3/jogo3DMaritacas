@@ -5,6 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const sensitivity = 0.1
 
+
 # Gravidade do projeto
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 #func _input(event):
@@ -14,8 +15,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	
 
 func _physics_process(delta):
+	Global.player_pos = position
 	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
-	Global.rotation_value = $Camroot/h/v.global_transform.basis.get_euler().x
+	if is_on_floor():
+		Global.rotation_value = $Camroot/h/v.global_transform.basis.get_euler().x
+	else:
+		Global.rotation_value = 0
 	
 	#$MeshInstance3D.rotation.y = lerp_angle($MeshInstance3D.rotation.y, $Camroot/h.rotation.y, delta * 10)
 	
@@ -43,3 +48,10 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+
+
+func _unhandled_input(event):
+	if event.is_action_pressed("ui_cancel"):
+		$PauseMenu.pause()

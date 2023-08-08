@@ -4,6 +4,7 @@ extends SubViewport
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_parent().transparent = true
 	pass # Replace with function body.
 
 
