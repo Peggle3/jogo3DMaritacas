@@ -40,6 +40,10 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("Left", "Right", "Front", "Back").rotated(-h_rot)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
+		if $Timer_audio.time_left <= 0 and is_on_floor():
+			$AudioStreamPlayer.pitch_scale = randf_range(1.99,3)
+			$AudioStreamPlayer.play()
+			$Timer_audio.start(0.6)
 		$MeshInstance3D.rotation.y = lerp_angle($MeshInstance3D.rotation.y, $Camroot/h.rotation.y, delta * 10)
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED

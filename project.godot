@@ -10,9 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Jogo 3d Maritacas"
+config/name="um jogo tao mal feito q eu fui puxado pra dentro dele"
+run/main_scene="res://Assets/Main_menu.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
+run/name="um jogo tao mal feito q eu fui puxado pra dentro dele"
 
 [autoload]
 

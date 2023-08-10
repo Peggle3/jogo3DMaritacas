@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://v1ro26ldmakm"]
+[gd_scene load_steps=13 format=3 uid="uid://v1ro26ldmakm"]
 
 [ext_resource type="Script" path="res://SubViewport.gd" id="1_4pbf3"]
 [ext_resource type="PackedScene" uid="uid://d3c0ji7ehppmh" path="res://Entities/jorginquebracod.tscn" id="2_68470"]
 [ext_resource type="Texture2D" uid="uid://csvnop4qiydrp" path="res://Assets/grids/Dark/texture_13.png" id="3_jjxy3"]
 [ext_resource type="Script" path="res://Levels/parede_some.gd" id="3_qjl1h"]
 [ext_resource type="Texture2D" uid="uid://78pehu0r5g6w" path="res://Assets/grids/Dark/texture_04.png" id="4_hi7ve"]
+[ext_resource type="PackedScene" uid="uid://dy5gnnn0bfqew" path="res://Entities/portal.tscn" id="6_7timy"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gafmu"]
 albedo_texture = ExtResource("3_jjxy3")
@@ -113,3 +114,7 @@ layers = 0
 use_collision = true
 collision_mask = 4
 size = Vector3(1, 3, 10)
+
+[node name="Portal" parent="." instance=ExtResource("6_7timy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11328, -0.0999995, -4.27656)
+proximo = "res://Levels/level_2.tscn"

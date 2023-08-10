@@ -48,7 +48,7 @@ albedo_texture = ExtResource("3_tepsv")
 albedo_texture = ExtResource("2_thfgb")
 uv1_triplanar = true
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m61pe"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_74yqd"]
 viewport_path = NodePath("SubViewport")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_j5t22"]
@@ -105,7 +105,7 @@ height = 5.421
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.2, 4.8, -18.4)
 sorting_offset = 1.0
 billboard = 0
-texture = SubResource("ViewportTexture_m61pe")
+texture = SubResource("ViewportTexture_74yqd")
 
 [node name="texto3D2" type="Sprite3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -9.6, 7.3, 9.3)

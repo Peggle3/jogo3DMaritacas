@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3c0ji7ehppmh"]
+[gd_scene load_steps=8 format=3 uid="uid://d3c0ji7ehppmh"]
 
 [ext_resource type="Script" path="res://Entities/jorginquebracod.gd" id="1_pdrhy"]
 [ext_resource type="ArrayMesh" uid="uid://ct3wkw85r0aga" path="res://Assets/Corpo.tres" id="2_3rtae"]
 [ext_resource type="ArrayMesh" uid="uid://jx01odm43d6c" path="res://Assets/Olho.tres" id="3_20no1"]
 [ext_resource type="Script" path="res://Entities/Camroot.gd" id="4_rfvyv"]
 [ext_resource type="PackedScene" uid="uid://knbm3o2gdioq" path="res://Assets/pause_menu.tscn" id="5_2nrhh"]
+[ext_resource type="AudioStream" uid="uid://5t1eromf7mk7" path="res://Assets/Sfx/soft-balloon-pop-88692.mp3" id="6_dguxx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7rotr"]
 size = Vector3(0.434566, 0.778378, 0.442152)
@@ -36,8 +37,16 @@ script = ExtResource("4_rfvyv")
 [node name="v" type="Node3D" parent="Camroot/h"]
 
 [node name="Camera3D" type="Camera3D" parent="Camroot/h/v"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0390722, 0.480088, 1.50568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0390722, 0.580088, 1.70568)
 
 [node name="mouse_control_stay_delay" type="Timer" parent="Camroot"]
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_2nrhh")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_dguxx")
+volume_db = -50.0
+pitch_scale = 3.72
+
+[node name="Timer_audio" type="Timer" parent="."]
+one_shot = true

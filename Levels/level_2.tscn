@@ -82,7 +82,7 @@ offset_bottom = 23.0
 text = "if(gravador.taAlerta == true)
 	reiniciaNivel()
 
-Audio.taAlerta == temSom"
+Gravador.taAlerta == temSom"
 horizontal_alignment = 1
 vertical_alignment = 1
 
