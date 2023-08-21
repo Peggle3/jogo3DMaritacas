@@ -1,6 +1,7 @@
 extends CharacterBody3D
 
-
+var direction 
+var h_rot
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const sensitivity = 0.1
@@ -13,10 +14,11 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 	#	rotate_y(deg_to_rad(-event.relative.x * sensitivity))
 	
 	
+	
 
 func _physics_process(delta):
 	Global.player_pos = position
-	var h_rot = $Camroot/h.global_transform.basis.get_euler().y
+	h_rot = $Camroot/h.global_transform.basis.get_euler().y
 	if is_on_floor():
 		Global.rotation_value = $Camroot/h/v.global_transform.basis.get_euler().x
 	else:
@@ -32,13 +34,12 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("Spacebar") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+		
 	#to usando o .rotated(-h_rot) q vai fazer o player ir mais rapido se ele anda com duas direcoes simultaneas
 	#da pra arruma colocando um .normalized mas como o jogo eh pra ser cagado acho q vo deixa
 	var input_dir = Input.get_vector("Left", "Right", "Front", "Back").rotated(-h_rot)
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
 	if direction:
 		if $Timer_audio.time_left <= 0 and is_on_floor():
 			$AudioStreamPlayer.pitch_scale = randf_range(1.99,3)

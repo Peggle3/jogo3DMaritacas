@@ -13,14 +13,14 @@ sky_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
 ground_bottom_color = Color(0.364706, 0.317647, 0.258824, 1)
 ground_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
 
-[sub_resource type="Sky" id="Sky_6fdp3"]
+[sub_resource type="Sky" id="Sky_vm8te"]
 sky_material = SubResource("ProceduralSkyMaterial_tj0hi")
 
 [sub_resource type="Environment" id="Environment_5jn0k"]
 background_mode = 1
 background_color = Color(0.0588235, 0.0588235, 0.141176, 1)
 background_energy_multiplier = 0.83
-sky = SubResource("Sky_6fdp3")
+sky = SubResource("Sky_vm8te")
 tonemap_mode = 2
 sdfgi_enabled = true
 fog_light_color = Color(1, 1, 0.45098, 1)
@@ -47,7 +47,6 @@ transform = Transform3D(-0.846193, -0.521424, 0.109881, 0, 0.206204, 0.978509, -
 light_energy = 2.26
 light_indirect_energy = 3.639
 shadow_enabled = true
-shadow_opacity = 0.55
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_5jn0k")
@@ -65,10 +64,10 @@ material_override = SubResource("StandardMaterial3D_mnxsn")
 transform = Transform3D(0.939693, 0, -0.34202, 0, 1, 0, 0.34202, 0, 0.939693, 8.2, 1.4, -2)
 
 [node name="Jorginquebracod" parent="." instance=ExtResource("2_knsv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 11.8)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.5, 11.8)
 
 [node name="texto3D3" type="Sprite3D" parent="."]
-transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.400002, 3.3, -7.57909)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.400002, 3.3, -5.1)
 pixel_size = 0.0125
 texture = SubResource("ViewportTexture_sedj0")
 

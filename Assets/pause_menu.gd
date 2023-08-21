@@ -6,6 +6,7 @@ extends ColorRect
 @onready var options_button: Button = find_child("Botao_opcoes")
 @onready var quit_button: Button = find_child("Botao_sair")
 @onready var back_button: Button = find_child("Botao_volta")
+@onready var checkpoint_button: Button = find_child("Botao_restart_checkpoint")
 
 func _ready():
 	AudioServer.set_bus_volume_db(0,30)
@@ -14,6 +15,12 @@ func _ready():
 	restart_button.pressed.connect(restart)
 	options_button.pressed.connect(opcoes)
 	back_button.pressed.connect(volta)
+	checkpoint_button.pressed.connect(checkpoint)
+	
+	if get_tree().current_scene.scene_file_path == "res://Levels/level_3.tscn":
+		checkpoint_button.show()
+	else:
+		checkpoint_button.hide()
 
 func unpause():
 	animator.play("Unpause")
@@ -53,3 +60,7 @@ func _process(delta):
 func _on_master_slider_value_changed(value):
 	volume(0,value)
 	pass # Replace with function body.
+
+
+func checkpoint():
+	print("AA")

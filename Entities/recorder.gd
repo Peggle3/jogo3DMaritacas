@@ -11,9 +11,4 @@ func _process(delta):
 	if AudioServer.get_bus_volume_db(0) > 0 :
 		if(Global.player_pos.distance_to(position) <= 15):
 			get_tree().reload_current_scene()
-			print("taperto")
-		else:
-			print("naotaperto")
-	else :
-		print("tacomsom")
 	pass

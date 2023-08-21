@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://dvyemvvf003ht"]
+
+[ext_resource type="Script" path="res://Levels/level_3.gd" id="1_6bhkj"]
+[ext_resource type="Texture2D" uid="uid://csvnop4qiydrp" path="res://Assets/grids/Dark/texture_13.png" id="1_kstmt"]
+[ext_resource type="Script" path="res://SubViewport.gd" id="2_pb5et"]
+[ext_resource type="PackedScene" uid="uid://d3c0ji7ehppmh" path="res://Entities/jorginquebracod.tscn" id="4_pydce"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_foni1"]
+sky_top_color = Color(0, 0.486275, 0.682353, 1)
+sky_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
+ground_bottom_color = Color(0.364706, 0.317647, 0.258824, 1)
+ground_horizon_color = Color(0.591177, 0.700981, 0.735294, 1)
+
+[sub_resource type="Sky" id="Sky_vm8te"]
+sky_material = SubResource("ProceduralSkyMaterial_foni1")
+
+[sub_resource type="Environment" id="Environment_5iebd"]
+background_mode = 1
+background_color = Color(0.0588235, 0.0588235, 0.141176, 1)
+background_energy_multiplier = 0.83
+sky = SubResource("Sky_vm8te")
+tonemap_mode = 2
+sdfgi_enabled = true
+fog_light_color = Color(1, 1, 0.45098, 1)
+fog_light_energy = 16.0
+fog_sun_scatter = 0.39
+fog_density = 0.0155
+fog_sky_affect = 0.103
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_chwnl"]
+albedo_texture = ExtResource("1_kstmt")
+uv1_triplanar = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lmkhs"]
+viewport_path = NodePath("texto3D3/SubViewport")
+
+[node name="Level_3" type="Node3D"]
+script = ExtResource("1_6bhkj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.846193, -0.521424, 0.109881, 0, 0.206204, 0.978509, -0.532876, 0.828008, -0.174489, 1.83372, 8.2, 4.58676)
+light_energy = 2.26
+light_indirect_energy = 3.639
+shadow_enabled = true
+shadow_opacity = 0.55
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5iebd")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 23, 0, 0, 3.8)
+material_override = SubResource("StandardMaterial3D_chwnl")
+use_collision = true
+
+[node name="texto3D3" type="Sprite3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -0.400002, 3.3, -15.8512)
+pixel_size = 0.0125
+texture = SubResource("ViewportTexture_lmkhs")
+
+[node name="SubViewport" type="SubViewport" parent="texto3D3"]
+transparent_bg = true
+size = Vector2i(324, 108)
+script = ExtResource("2_pb5et")
+
+[node name="Label" type="Label" parent="texto3D3/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "if(gravador.taAlerta == true)
+	reiniciaNivel()
+
+Gravador.taAlerta == temSom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(14, 0, 0, 0, 1, 0, 0, 0, 23, -3.9813, 3, -2.3356)
+material_override = SubResource("StandardMaterial3D_chwnl")
+use_collision = true
+size = Vector3(0.465262, 1, 0.444169)
+
+[node name="Jorginquebracod" parent="." instance=ExtResource("4_pydce")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.26631, 0.5, 9.50506)

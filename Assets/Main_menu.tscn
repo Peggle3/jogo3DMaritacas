@@ -147,6 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_default_cursor_shape = 2
 script = ExtResource("2_i5lme")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -176,8 +177,9 @@ layout_mode = 2
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Um jogo tão mal feito que eu fui puxado pra 
-dentro dele e não sei o que eu estou fazendo"
+text = "//Um jogo tão mal feito que eu fui puxado pra 
+//dentro dele e não sei o que eu estou fazendo
+//Pensar num nome melhor dps"
 horizontal_alignment = 1
 vertical_alignment = 1
 

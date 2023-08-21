@@ -204,6 +204,11 @@ custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 text = "Sair"
 
+[node name="Botao_restart_checkpoint" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+text = "restart.docheckpoint()"
+
 [node name="Opcoes" type="Control" parent="CenterContainer/PanelContainer/MarginContainer"]
 visible = false
 layout_mode = 2

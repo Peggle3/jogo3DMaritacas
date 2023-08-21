@@ -12,7 +12,9 @@ config_version=5
 
 config/name="um jogo tao mal feito q eu fui puxado pra dentro dele"
 run/main_scene="res://Assets/Main_menu.tscn"
-config/features=PackedStringArray("4.0", "Forward Plus")
+config/use_custom_user_dir=true
+config/custom_user_dir_name="JogotaomalfeitoSave"
+config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 run/name="um jogo tao mal feito q eu fui puxado pra dentro dele"
 
@@ -27,6 +29,10 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 window/size/borderless=true
+
+[filesystem]
+
+import/fbx/enabled=false
 
 [gui]
 
